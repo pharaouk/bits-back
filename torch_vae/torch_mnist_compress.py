@@ -80,6 +80,7 @@ print('This is {:.2f} bits per pixel'.format(compressed_bits
 if not os.path.exists('results'):
     os.mkdir('results')
 np.savetxt('compressed_lengths_cts', np.array(compress_lengths))
+np.savetxt('compressed_message', np.array(compressed_message))
 
 state = rans.unflatten(compressed_message)
 decode_start_time = time.time()
@@ -95,4 +96,6 @@ for n in range(len(images)):
 print('\nAll decoded in {:.2f}s'.format(time.time() - decode_start_time))
 
 recovered_bits = rans.flatten(state)
+
+print(recovered_bits.head)
 assert all(other_bits == recovered_bits)
