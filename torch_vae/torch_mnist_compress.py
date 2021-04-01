@@ -85,13 +85,13 @@ np.savetxt('compressed_message', np.array(compressed_message))
 
 state = rans.unflatten(compressed_message)
 decode_start_time = time.time()
-
+print(state)
 for n in range(len(images)):
+    print(state)
+    
     state, image_ = vae_pop(state)
     original_image = images[len(images)-n-1].numpy()
-    print(original_image)
-    print(image_)
-    print(np.testing.assert_allclose(original_image, image_))
+    
     np.testing.assert_allclose(original_image, image_)
 
     if not n % print_interval:
