@@ -1,8 +1,8 @@
 import os
 import torch
 import numpy as np
-import util
-import rans
+import .util
+import .rans
 from torch_vae.tvae_beta_binomial import BetaBinomialVAE
 from torch_vae import tvae_utils
 from torchvision import datasets, transforms
