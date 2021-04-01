@@ -50,8 +50,9 @@ vae_pop = util.vae_pop(latent_shape, gen_net, rec_net, obs_pop,
 mnist = datasets.MNIST('data/mnist', train=False, download=True,
                        transform=transforms.Compose([transforms.ToTensor()]))
 images = mnist.test_data[:num_images]
-
+print(images)
 images = [image.float().view(1, -1) for image in images]
+print(images)
 
 # randomly generate some 'other' bits
 other_bits = rng.randint(low=1 << 16, high=1 << 31, size=50, dtype=np.uint32)
@@ -88,6 +89,9 @@ decode_start_time = time.time()
 for n in range(len(images)):
     state, image_ = vae_pop(state)
     original_image = images[len(images)-n-1].numpy()
+    print(original_image)
+    print(image_)
+    print(np.testing.assert_allclose(original_image, image_))
     np.testing.assert_allclose(original_image, image_)
 
     if not n % print_interval:
@@ -97,5 +101,5 @@ print('\nAll decoded in {:.2f}s'.format(time.time() - decode_start_time))
 
 recovered_bits = rans.flatten(state)
 
-print(recovered_bits.head)
+print(recovered_bits)
 assert all(other_bits == recovered_bits)
