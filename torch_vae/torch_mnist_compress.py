@@ -1,8 +1,15 @@
-import os
+import os, sys
+currentdir = os.path.dirname(os.path.realpath(__file__))
+parentdir = os.path.dirname(currentdir)
+sys.path.append(parentdir)
+
+
+
+#import os
 import torch
 import numpy as np
-import .util
-import .rans
+import util
+import rans
 from torch_vae.tvae_beta_binomial import BetaBinomialVAE
 from torch_vae import tvae_utils
 from torchvision import datasets, transforms
