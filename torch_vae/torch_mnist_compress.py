@@ -31,7 +31,7 @@ latent_dim = 50
 latent_shape = (1, latent_dim)
 model = BetaBinomialVAE(hidden_dim=200, latent_dim=latent_dim)
 model.load_state_dict(
-    torch.load('torch_vae/saved_params/torch_vae_beta_binomial_params',
+    torch.load('/content/drive/My Drive/Colab Notebooks/bits-back/torch_vae/saved_params/torch_vae_beta_binomial_params',
                map_location=lambda storage, location: storage))
 model.eval()
 
