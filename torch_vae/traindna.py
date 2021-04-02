@@ -62,7 +62,7 @@ for i in range(len(split_strings)):
      zeronp = np.zeros(784-(yy.shape[0]))
      yy = np.append(yy,(zeronp))
 
-  dna_arrays.append(yy)
+  dna_arrays.append(yy.float())
 
 dna_arrays = np.array(dna_arrays)
 print(dna_arrays.shape)
@@ -74,9 +74,9 @@ print(xxx.shape)
 
 train_size = int(0.8 * len(xxx))
 test_size = len(xxx) - train_size
-train_ds= TensorDataset(xxx[:100000],xxx[:100000]).float()
-test_ds= TensorDataset(xxx[100000:124500],xxx[100000:124500]).float()
-rec_ds= TensorDataset(xxx[124500:124574],xxx[124500:124574]).float()
+train_ds= TensorDataset(xxx[:100000],xxx[:100000])
+test_ds= TensorDataset(xxx[100000:124500],xxx[100000:124500])
+rec_ds= TensorDataset(xxx[124500:124574],xxx[124500:124574])
 
 
 torch.manual_seed(17)
