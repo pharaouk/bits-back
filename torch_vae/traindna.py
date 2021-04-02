@@ -75,7 +75,7 @@ print(xxx.shape)
 
 train_size = int(0.8 * len(xxx))
 test_size = len(xxx) - train_size
-train_ds= data_utils.dataset.Dataset(xxx[:100000],0)
+train_ds= data_utils.dataset.Dataset(xxx)
 test_ds= data_utils.dataset.Dataset(xxx[100000:124500],0)
 rec_ds= data_utils.dataset.Dataset(xxx[124500:124574],0)
 
