@@ -18,7 +18,7 @@ import time
 rng = np.random.RandomState(0)
 np.seterr(all='raise')
 
-randomise_data = True
+randomise_data = False
 
 prior_precision = 8
 bernoulli_precision = 12
@@ -33,10 +33,10 @@ model = BinaryVAE(hidden_dim=100, latent_dim=40)
 
 if randomise_data:
     model.load_state_dict(
-        torch.load('torch_vae/saved_params/torch_binary_vae_params_random'))
+        torch.load('/content/drive/My Drive/Colab Notebooks/bits-back/torch_vae/saved_params/torch_binary_vae_params_random'))
 else:
     model.load_state_dict(
-        torch.load('torch_vae/saved_params/torch_binary_vae_params'))
+        torch.load('/content/drive/My Drive/Colab Notebooks/bits-back/torch_vae/saved_params/torch_binary_vae_params'))
 
 rec_net = tvae_utils.torch_fun_to_numpy_fun(model.encode)
 gen_net = tvae_utils.torch_fun_to_numpy_fun(model.decode)
