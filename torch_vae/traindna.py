@@ -71,7 +71,7 @@ print(ll.shape)
 xxx = torch.from_numpy(ll)
 print(xxx.shape)
 
-train_size = int(0.8 * len(x))
+train_size = int(0.8 * len(xxx))
 test_size = len(xxx) - train_size
 train_dataset, test_dataset = torch.utils.data.random_split(xxx, [train_size, test_size])
 
