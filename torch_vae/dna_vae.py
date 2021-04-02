@@ -53,9 +53,13 @@ for index in range(0, len(data), n):
 dna_arrays = []
 for i in range(len(split_strings)):
   y = ordinal_encoder(string_to_array(split_strings[i]))
+  if y.shape != (784,):
+     zeronp = np.zeros(784-(y.shape[0]))
+     y = np.append(y,(zeronp))
+
   dna_arrays.append(y)
 
-dna_arrays = np.array(dna_arrays)
+#dna_arrays = np.array(dna_arrays)
 print(dna_arrays.shape)
 
 l = np.vstack( dna_arrays )
