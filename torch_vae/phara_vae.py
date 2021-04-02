@@ -51,7 +51,8 @@ mnist = datasets.MNIST('data/mnist', train=False, download=True,
                        transform=transforms.Compose([transforms.ToTensor()]))
 images = mnist.test_data[:num_images]
 images = [image.float().view(1, -1) for image in images]
-
+print(images[0])
+print(images[0].shape)
 # randomly generate some 'other' bits
 other_bits = rng.randint(low=1 << 16, high=1 << 31, size=50, dtype=np.uint32)
 state = rans.unflatten(other_bits)
