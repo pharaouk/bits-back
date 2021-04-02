@@ -64,7 +64,7 @@ if not os.path.exists('results'):
 
     
     
-compressed_message = np.loadtxt('compressed_message.txt')
+compressed_message = np.loadtxt('compressed_message')
 
 state = rans.unflatten(compressed_message)
 decode_start_time = time.time()
