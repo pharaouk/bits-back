@@ -75,9 +75,9 @@ print(xxx.shape)
 
 train_size = int(0.8 * len(xxx))
 test_size = len(xxx) - train_size
-train_ds= TensorDataset(xxx[:100000],xxx[:100000])
-test_ds= TensorDataset(xxx[100000:124500],xxx[100000:124500])
-rec_ds= TensorDataset(xxx[124500:124574],xxx[124500:124574])
+train_ds= data_utils.dataset.TensorDataset(xxx[:100000],xxx[:100000])
+test_ds= data_utils.dataset.TensorDataset(xxx[100000:124500],xxx[100000:124500])
+rec_ds= data_utils.dataset.TensorDataset(xxx[124500:124574],xxx[124500:124574])
 
 
 torch.manual_seed(17)
