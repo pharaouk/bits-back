@@ -72,8 +72,7 @@ for n in range(len(images)):
     state, image_ = vae_pop(state)
     original_image = images[len(images)-n-1].numpy()
     comparison = original_image == image_
-    equal_arrays = comparison.all()
-    print('Array Equality: ' + equal_arrays)
+    print('Array Equality: ' + comparison)
     np.testing.assert_allclose(original_image, image_)
 
     if not n % print_interval:
