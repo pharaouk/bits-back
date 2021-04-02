@@ -59,7 +59,7 @@ for i in range(len(split_strings)):
 
   dna_arrays.append(y)
 
-#dna_arrays = np.array(dna_arrays)
+dna_arrays = np.array(dna_arrays)
 print(dna_arrays.shape)
 
 l = np.vstack( dna_arrays )
