@@ -5,6 +5,7 @@ parentdir = os.path.dirname(currentdir)
 sys.path.append(parentdir)
 
 
+from torch.utils.data import TensorDataset, DataLoader
 
 
 
@@ -73,7 +74,9 @@ print(xxx.shape)
 
 train_size = int(0.8 * len(xxx))
 test_size = len(xxx) - train_size
-train_dataset, test_dataset = torch.utils.data.random_split(xxx, [train_size, test_size])
+train_ds= TensorDataset(xxx[:100000])
+test_ds= TensorDataset(xxx[100000:124500])
+rec_ds= TensorDataset(xxx[124500:124574])
 
 
 torch.manual_seed(17)
@@ -213,15 +216,16 @@ if __name__ == '__main__':
     model = BetaBinomialVAE().to(device)
     optimizer = optim.Adam(model.parameters(), lr=5e-4)
 
+    
     train_loader = torch.utils.data.DataLoader(
-        xxx[:100000],
+        train_ds,
         batch_size=batch_size, shuffle=True, **kwargs)
 
     test_loader = torch.utils.data.DataLoader(
-        xxx[100000:124500],
+        test_ds,
         batch_size=batch_size, shuffle=True, **kwargs)
 
-    recon_dataset = xxx[124500:124574]
+    recon_dataset = rec_ds
 
     for epoch in range(1, epochs + 1):
         train(model, device, epoch, train_loader, optimizer)
