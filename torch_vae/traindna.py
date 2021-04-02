@@ -214,14 +214,14 @@ if __name__ == '__main__':
     optimizer = optim.Adam(model.parameters(), lr=5e-4)
 
     train_loader = torch.utils.data.DataLoader(
-        train_dataset,
+        xxx[:100000],
         batch_size=batch_size, shuffle=True, **kwargs)
 
     test_loader = torch.utils.data.DataLoader(
-        test_dataset,
+        xxx[100000:124500],
         batch_size=batch_size, shuffle=True, **kwargs)
 
-    recon_dataset = xxx[:32]
+    recon_dataset = xxx[124500:124574]
 
     for epoch in range(1, epochs + 1):
         train(model, device, epoch, train_loader, optimizer)
