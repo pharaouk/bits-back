@@ -88,6 +88,8 @@ for n in range(len(images)):
     original_image = images[len(images)-n-1].numpy()
     
     np.testing.assert_allclose(original_image, image_)
+    comparison = original_image == image_
+    print('Array Equality: ' + str(comparison))
 
     if not n % print_interval:
         print('Decoded {}'.format(n))
