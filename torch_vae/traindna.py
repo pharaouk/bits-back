@@ -5,7 +5,7 @@ parentdir = os.path.dirname(currentdir)
 sys.path.append(parentdir)
 
 
-from torch.utils.data import TensorDataset, DataLoader
+from torch.utils.data import Dataset, DataLoader
 
 
 
