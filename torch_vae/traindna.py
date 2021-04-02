@@ -62,7 +62,7 @@ for i in range(len(split_strings)):
      zeronp = np.zeros(784-(yy.shape[0]))
      yy = np.append(yy,(zeronp))
 
-  dna_arrays.append(yy.float())
+  dna_arrays.append(yy)
 
 dna_arrays = np.array(dna_arrays)
 print(dna_arrays.shape)
@@ -70,6 +70,7 @@ print(dna_arrays.shape)
 ll = np.vstack( dna_arrays )
 print(ll.shape)
 xxx = torch.from_numpy(ll)
+xxx = xxx.float()
 print(xxx.shape)
 
 train_size = int(0.8 * len(xxx))
